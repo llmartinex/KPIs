@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Reporting · Ecoembes</title>
+<title>Dashboard KPIs · Ecoembes</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -241,67 +241,6 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
-
-/* ── SYNC PANEL ──────────────────────────────────────────── */
-.sync-bar{
-  background:var(--surf);border-bottom:1px solid var(--bd);
-  padding:10px 26px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-}
-.sync-lbl{font-size:11.5px;font-weight:700;color:var(--mu);white-space:nowrap}
-.sync-inp{
-  flex:1;min-width:280px;max-width:560px;
-  padding:7px 12px;background:var(--surf2);border:1px solid var(--bd2);
-  border-radius:7px;font-size:12px;font-family:inherit;color:var(--tx);
-  transition:.15s;
-}
-.sync-inp:focus{outline:none;border-color:var(--gr);background:var(--surf);box-shadow:0 0 0 3px rgba(24,108,36,.1)}
-.sync-inp::placeholder{color:var(--hi)}
-.sync-btn{
-  padding:7px 16px;border-radius:8px;font-size:12.5px;font-weight:700;
-  cursor:pointer;border:none;font-family:inherit;transition:.15s;white-space:nowrap;
-  background:var(--gr);color:#fff;box-shadow:0 2px 8px rgba(24,108,36,.25);
-  display:flex;align-items:center;gap:6px;
-}
-.sync-btn:hover{background:var(--gr-mid)}
-.sync-btn:disabled{opacity:.5;cursor:not-allowed}
-.sync-status{
-  font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;
-  white-space:nowrap;display:flex;align-items:center;gap:5px;
-}
-.sync-status.idle{background:var(--surf2);color:var(--mu)}
-.sync-status.loading{background:#EFF6FF;color:#1D5FA8}
-.sync-status.ok{background:var(--ok-bg);color:var(--ok-tx)}
-.sync-status.error{background:var(--ko-bg);color:var(--ko-tx)}
-.sync-ts{font-size:10px;color:var(--hi);white-space:nowrap}
-@keyframes spin{to{transform:rotate(360deg)}}
-.spin{animation:spin .8s linear infinite;display:inline-block}
-/* Config modal */
-.cfg-ov{position:fixed;inset:0;background:rgba(15,20,30,.45);backdrop-filter:blur(8px);
-  z-index:300;display:flex;align-items:center;justify-content:center;padding:20px}
-.cfg-ov.hidden{display:none}
-.cfg-modal{background:var(--surf);border:1px solid var(--bd2);border-radius:18px;
-  width:100%;max-width:560px;box-shadow:0 24px 80px rgba(0,0,0,.2);animation:modal-in .18s ease}
-.cfg-body{padding:22px}
-.cfg-row{margin-bottom:16px}
-.cfg-row label{display:block;font-size:11px;font-weight:700;color:var(--mu);
-  letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
-.cfg-row input{width:100%;padding:8px 12px;background:var(--surf2);border:1px solid var(--bd2);
-  border-radius:7px;font-size:13px;font-family:inherit;color:var(--tx);transition:.15s}
-.cfg-row input:focus{outline:none;border-color:var(--gr);background:var(--surf);
-  box-shadow:0 0 0 3px rgba(24,108,36,.1)}
-.cfg-hint{font-size:10.5px;color:var(--hi);margin-top:4px;line-height:1.5}
-.cfg-hint code{background:var(--surf3);border:1px solid var(--bd);border-radius:3px;
-  padding:1px 4px;font-family:monospace;font-size:10px;color:var(--mu)}
-.cfg-sep{border:none;border-top:1px solid var(--bd);margin:18px 0}
-.map-tbl{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:8px}
-.map-tbl th{text-align:left;padding:5px 8px;font-size:10px;font-weight:700;
-  color:var(--hi);text-transform:uppercase;letter-spacing:.06em;
-  border-bottom:2px solid var(--bd)}
-.map-tbl td{padding:4px 8px;border-bottom:1px solid var(--bd)}
-.map-tbl td:first-child{font-weight:700;color:var(--gr);font-size:10.5px}
-.map-tbl input{width:100%;padding:3px 7px;border:1px solid var(--bd);border-radius:4px;
-  font-size:11px;font-family:inherit;color:var(--tx);background:var(--surf2)}
-.map-tbl input:focus{outline:none;border-color:var(--gr)}
 </style>
 </head>
 <body style="display:flex">
@@ -313,6 +252,7 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
       <div class="sb-ico">EC</div>
       <div>
         <div class="sb-name">Ecoembes</div>
+        
       </div>
     </div>
   </div>
@@ -331,11 +271,17 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
     <div class="nav-item" data-view="op">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
       Vista Operativa
-      <span class="nav-badge">16</span>
+      <span class="nav-badge">9</span>
+    </div>
+    <div class="nav-item" data-view="eq">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="18" cy="8" r="2.5"/><path d="M21 21v-1.5a3.5 3.5 0 00-2.5-3.35"/></svg>
+      Vista Equipos
+      <span class="nav-badge">7</span>
     </div>
   </nav>
   <div class="sb-ftr">
     <div class="sb-row"><span>KPIs totales</span><span>27</span></div>
+    <div class="sb-ver">Dashboard</div>
   </div>
 </aside>
 
@@ -346,21 +292,10 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
       <span>Dashboards</span><span class="tb-sep">/</span><strong id="tb-title">Vista CTO</strong>
     </div>
     <div class="tb-right">
-      <div class="tb-chip"><div class="tb-dot"></div>Datos reales 2025</div>
-      <div class="tb-chip">Ene 2025 – Ene 2026</div>
+      
+      
     </div>
   </header>
-
-  <!-- STATUS BAR -->
-  <div class="sync-bar">
-    <span class="sync-lbl">🔗 Datos SharePoint</span>
-    <span class="sync-status idle" id="syncStatus" style="flex:1">Cargando datos…</span>
-    <span class="sync-ts" id="syncTs"></span>
-    <button class="sync-btn" id="syncBtn" onclick="loadKPIData()" title="Forzar recarga">
-      <span id="syncBtnIcon">↻</span> Recargar
-    </button>
-    <button class="sync-btn" style="background:var(--surf2);color:var(--mu);border:1px solid var(--bd);box-shadow:none;font-size:11px" onclick="document.getElementById('cfgModal').classList.remove('hidden')" title="Configurar ruta del JSON">⚙ Configurar</button>
-  </div>
 
   <main class="main">
 
@@ -403,45 +338,18 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
         <div class="chart-grid" id="op-gest-c"></div>
       </div>
       <div class="section">
-        <div class="sec-hdr"><div class="sec-bar"></div><span class="sec-lbl">Equipos · Métricas ágiles</span></div>
-        <div class="chart-grid" id="op-eq"></div>
       </div>
+    </div>
+
+    <!-- VISTA EQUIPOS -->
+    <div class="view" id="view-eq">
+      <div id="eq-kpi-sections"></div>
     </div>
 
   </main>
 </div>
 
-<!-- CONFIG MODAL -->
-<div class="cfg-ov hidden" id="cfgModal">
-  <div class="cfg-modal">
-    <div class="m-hdr">
-      <div><h3>⚙ Configuración</h3><div class="m-sub">Ruta del archivo JSON generado por Power Automate</div></div>
-      <button class="m-cls" onclick="document.getElementById('cfgModal').classList.add('hidden')">✕</button>
-    </div>
-    <div class="cfg-body">
-      <div class="cfg-row">
-        <label>URL del archivo kpis_data.json en SharePoint</label>
-        <input type="text" id="cfgJsonUrl" placeholder="https://empresa.sharepoint.com/sites/…/kpis_data.json" />
-        <p class="cfg-hint">
-          Power Automate genera este archivo automáticamente cada vez que se guarda el Excel.<br>
-          Para obtener la URL: en SharePoint, clic derecho sobre <strong>kpis_data.json</strong> → <strong>Copiar vínculo directo</strong>.<br>
-          Esta configuración se guarda en el navegador y no hay que repetirla.
-        </p>
-      </div>
-      <div class="cfg-row">
-        <label>Proxy CORS (solo si SharePoint bloquea la carga)</label>
-        <input type="text" id="cfgProxy" placeholder="https://corsproxy.io/?" />
-        <p class="cfg-hint">Déjalo vacío si el dashboard HTML está alojado en el mismo SharePoint que el JSON.</p>
-      </div>
-    </div>
-    <div class="m-ftr">
-      <button class="btn btn-s" onclick="document.getElementById('cfgModal').classList.add('hidden')">Cancelar</button>
-      <button class="btn btn-p" onclick="saveJsonCfg()">Guardar y recargar</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL EDICIÓN -->
+<!-- MODAL -->
 <div class="modal-ov hidden" id="editModal">
   <div class="modal">
     <div class="m-hdr">
@@ -649,13 +557,88 @@ populate('ciso-ch-b',['kpi14','kpi15'],false);
 populate('op-sol',['kpi08','kpi11','kpi12','kpi13'],false);
 populate('op-gest-s',['kpi16','kpi18','kpi19'],true);
 populate('op-gest-c',['kpi17','kpi20'],false);
-populate('op-eq',['kpi21','kpi22','kpi23','kpi24','kpi25','kpi26','kpi27'],false);
+
+// Vista Equipos — por KPI, 6 gráficas (una por equipo)
+const TEAM_KEYS = ['kpi21','kpi22','kpi23','kpi24','kpi25','kpi26','kpi27'];
+const TEAMS = [
+  {id:'dec',  label:'Declaración 2.0'},
+  {id:'sdgr', label:'SDGR · Convenio Digital'},
+  {id:'sw',   label:'SmartWaste'},
+  {id:'prov', label:'Provisiones'},
+  {id:'circ', label:'CircularCheck'},
+  {id:'arq',  label:'Arquitectura'},
+];
+
+// Variaciones por equipo para diferenciación visual hasta conectar datos reales
+const baseVariation = {
+  dec:  [0,    0,    0,   0,   0,   0,   0],
+  sdgr: [2,   -0.5,  1,  -1,   1,  -1,   2],
+  sw:   [-3,   0.5, -2,   2,  -2,   0,  -2],
+  prov: [1,    1,   -1,   1,   1,   0,   1],
+  circ: [-1,  -1,    1,  -1,   1,   1,  -1],
+  arq:  [3,   0.5,   2,   0,   2,  -1,   3],
+};
+
+const TEAM_DATA = {};
+TEAMS.forEach(team => {
+  TEAM_DATA[team.id] = {};
+  TEAM_KEYS.forEach((k, ki) => {
+    const base = KPI[k];
+    const delta = baseVariation[team.id][ki];
+    const tempKey = k + '_' + team.id;
+    TEAM_DATA[team.id][k] = tempKey;
+    KPI[tempKey] = {
+      ...base,
+      id: base.id,
+      ttl: base.ttl,
+      series: base.series.map(s => ({
+        ...s,
+        data: s.data.map(v => Math.round((v + delta) * 10) / 10)
+      }))
+    };
+  });
+});
+
+function buildEquiposView() {
+  const container = document.getElementById('eq-kpi-sections');
+  if (!container) return;
+  container.innerHTML = '';
+
+  TEAM_KEYS.forEach(k => {
+    const base = KPI[k];
+
+    // Sección header por KPI
+    const secHdr = document.createElement('div');
+    secHdr.className = 'sec-hdr';
+    secHdr.style.marginTop = '8px';
+    secHdr.innerHTML = `<div class="sec-bar" style="background:#7C3AED"></div><span class="sec-lbl">${base.ttl} <span style="font-weight:400;opacity:.7">· ${base.unit}</span></span>`;
+    container.appendChild(secHdr);
+
+    // Grid con 6 gráficas (una por equipo)
+    const grid = document.createElement('div');
+    grid.className = 'chart-grid';
+    grid.style.marginBottom = '28px';
+    container.appendChild(grid);
+
+    TEAMS.forEach(team => {
+      const tempKey = k + '_' + team.id;
+      // Sobreescribir título para mostrar el nombre del equipo
+      KPI[tempKey].ttl = team.label;
+      KPI[tempKey].area = base.ttl;
+      const card = buildChart(tempKey);
+      grid.appendChild(card);
+      initChart(tempKey);
+    });
+  });
+}
+
+buildEquiposView();
 
 document.querySelectorAll('.sc-val[data-target]').forEach(el=>{
   countUp(el,parseFloat(el.dataset.target),el.dataset.unit);
 });
 
-const viewNames={cto:'Vista CTO',ciso:'Vista CISO',op:'Vista Operativa'};
+const viewNames={cto:'Vista CTO',ciso:'Vista CISO',op:'Vista Operativa',eq:'Vista Equipos'};
 
 function buildGeneralView(){
   // Groups with ordered keys
@@ -711,7 +694,7 @@ document.querySelectorAll('.nav-item').forEach(item=>{
     const v=item.dataset.view;
     document.getElementById('view-'+v).classList.add('active');
     document.getElementById('tb-title').textContent=viewNames[v];
-    setTimeout(()=>Object.values(charts).forEach(c=>c.resize()),50);
+    setTimeout(()=>Object.values(charts).forEach(c=>c&&c.resize()),50);
   });
 });
 
@@ -750,120 +733,6 @@ document.getElementById('mSave').addEventListener('click',()=>{
   }
   closeModal();
 });
-// ═══════════════════════════════════════════════════════════════
-// DATA LOADER — lee kpis_data.json generado por Power Automate
-//
-// Formato esperado del JSON:
-// {
-//   "kpi03": { "series": [[10.8,11.4,...]] },
-//   "kpi05": { "series": [[15.3,...],[17.7,...],[13,...]] },
-//   "kpi19": { "series": [[4,6,...],[6,14,...],[0,0,...]] },
-//   ...
-//   "updated": "2025-01-31T10:30:00Z"
-// }
-// ═══════════════════════════════════════════════════════════════
-
-function getJsonUrl()  { return localStorage.getItem('kpi_json_url') || ''; }
-function getProxy()    { return localStorage.getItem('kpi_proxy')    || ''; }
-
-function setSyncStatus(state, msg) {
-  const el = document.getElementById('syncStatus');
-  el.className = 'sync-status ' + state;
-  const icons = { idle:'○', loading:'↻', ok:'✓', error:'✕' };
-  el.innerHTML = `<span${state==='loading'?' class="spin"':''}>${icons[state]}</span> ${msg}`;
-}
-
-function applyJSON(data) {
-  let updated = 0;
-  Object.entries(data).forEach(([key, val]) => {
-    if (key === 'updated' || !KPI[key] || !val.series) return;
-    const kpi = KPI[key];
-    val.series.forEach((seriesData, si) => {
-      if (!kpi.series[si]) return;
-      const clean = seriesData.filter(v => v !== null && !isNaN(v));
-      if (!clean.length) return;
-      // Align to expected label length
-      const target = kpi.labels.length;
-      const aligned = clean.slice(0, target);
-      while (aligned.length < target) aligned.push(aligned[aligned.length-1] ?? 0);
-      kpi.series[si].data = aligned;
-    });
-    updated++;
-  });
-  return updated;
-}
-
-function refreshAllViews() {
-  Object.keys(charts).forEach(k => { if (charts[k]) refreshChart(k); });
-  ['kpi01','kpi02','kpi06','kpi10','kpi16','kpi18','kpi19'].forEach(k => {
-    const btn = document.querySelector(`.sc .edit-btn[data-kpi="${k}"]`);
-    const old = btn?.closest('.sc');
-    if (old) {
-      const n = buildStat(k); old.replaceWith(n);
-      const ve = n.querySelector('.sc-val[data-target]');
-      if (ve) countUp(ve, parseFloat(ve.dataset.target), ve.dataset.unit);
-    }
-  });
-  buildGeneralView();
-}
-
-async function loadKPIData() {
-  const url = getJsonUrl();
-  const btn = document.getElementById('syncBtn');
-  const icon = document.getElementById('syncBtnIcon');
-
-  if (!url) {
-    setSyncStatus('idle', 'Configura la URL del JSON para cargar datos en vivo ⚙');
-    return;
-  }
-
-  const proxy = getProxy();
-  const fetchUrl = proxy ? proxy + encodeURIComponent(url) : url;
-
-  btn.disabled = true; icon.className = 'spin';
-  setSyncStatus('loading', 'Cargando datos…');
-
-  try {
-    const res = await fetch(fetchUrl, { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-
-    const updated = applyJSON(data);
-    if (!updated) throw new Error('JSON sin datos reconocibles');
-
-    refreshAllViews();
-
-    const src = data.updated
-      ? new Date(data.updated).toLocaleString('es-ES',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})
-      : new Date().toLocaleTimeString('es-ES',{hour:'2-digit',minute:'2-digit'});
-    document.getElementById('syncTs').textContent = `Actualizado: ${src}`;
-    localStorage.setItem('kpi_last_ts', new Date().toISOString());
-    setSyncStatus('ok', `${updated} KPIs cargados desde SharePoint`);
-
-  } catch(e) {
-    const msg = e.message.length > 65 ? e.message.slice(0,65)+'…' : e.message;
-    setSyncStatus('error', msg);
-    console.error('KPI load error:', e);
-  } finally {
-    btn.disabled = false; icon.className = '';
-  }
-}
-
-function saveJsonCfg() {
-  localStorage.setItem('kpi_json_url', document.getElementById('cfgJsonUrl').value.trim());
-  localStorage.setItem('kpi_proxy',    document.getElementById('cfgProxy').value.trim());
-  document.getElementById('cfgModal').classList.add('hidden');
-  loadKPIData();
-}
-
-// ── Inicialización: carga datos automáticamente al abrir ───
-(function init() {
-  const url = getJsonUrl(), proxy = getProxy();
-  if (url) document.getElementById('cfgJsonUrl').value = url;
-  if (proxy) document.getElementById('cfgProxy').value = proxy;
-  // Carga automática al abrir el dashboard
-  loadKPIData();
-})();
 </script>
 </body>
 </html>
