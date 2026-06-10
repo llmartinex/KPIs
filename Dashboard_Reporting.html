@@ -186,7 +186,7 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
 .cc-ttl{font-size:13px;font-weight:700;color:var(--tx);line-height:1.3;margin-bottom:2px}
 .cc-obj{font-size:11px;color:var(--mu)}
 .cc-acts{display:flex;gap:5px;flex-shrink:0;margin-left:10px}
-.cw{position:relative;height:190px}
+.cw{position:relative;height:220px}
 .cc-leg{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;
   padding-top:12px;border-top:1px solid var(--bd)}
 .leg-i{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--mu)}
@@ -241,6 +241,13 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
+
+/* MULTI-CHART */
+.cc-multi{display:flex;flex-direction:column;gap:0}
+.mc-sub{padding:10px 16px 6px}
+.mc-sub+.mc-sub{border-top:1px solid var(--bd)}
+.mc-lbl{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.mc-cw{height:90px;position:relative}
 </style>
 </head>
 <body style="display:flex">
@@ -382,10 +389,17 @@ const KPI={
   kpi09:{id:'KPI_09',ttl:'Horas de arquitectura vs. total equipo',area:'Plataforma Digital',unit:'%',obj:null,objL:'Rango 10–20%',dir:'range',objMin:10,objMax:20,type:'monthly',labels:M,series:[{name:'% Arquitectura',color:'#1D5FA8',data:[12,14,15,13,16,18,17,15,14,15,16,13]}]},
   kpi14:{id:'KPI_14',ttl:'Tiempo resolución incidencias de seguridad',area:'Ciberseguridad',unit:'h',obj:24,objL:'< 24h',dir:'down',type:'monthly',labels:M,series:[{name:'Horas',color:'#DC2626',data:[26,24,22,23,17,19,21,20,16,21,16,18]}]},
   kpi15:{id:'KPI_15',ttl:'Tasa de incidencias de seguridad',area:'Ciberseguridad',unit:'%',obj:5,objL:'< 5%',dir:'down',type:'monthly',labels:M,series:[{name:'%',color:'#DC2626',data:[4.6,4.3,3.9,4.1,3.8,4.4,4.1,4.7,4.0,3.8,4.2,3.5]}]},
-  kpi08:{id:'KPI_08',ttl:'Dedicación a desarrollo efectivo (Soluciones)',area:'Soluciones y Productos',unit:'%',obj:80,objL:'> 80%',dir:'up',type:'monthly',labels:M,series:[{name:'%',color:'#1D5FA8',data:[76,75,79,78,80,82,79,77,78,80,79,77]}]},
-  kpi11:{id:'KPI_11',ttl:'Dedicación a desarrollo efectivo (Productos)',area:'Soluciones y Productos',unit:'%',obj:80,objL:'> 80%',dir:'up',type:'monthly',labels:M,series:[{name:'%',color:'#1D5FA8',data:[82,79,84,81,83,85,80,78,82,84,83,86]}]},
-  kpi12:{id:'KPI_12',ttl:'Tasa de defectos en producción (Software)',area:'Soluciones y Productos',unit:'%',obj:3,objL:'< 3%',dir:'down',type:'monthly',labels:M,series:[{name:'%',color:'#C2410C',data:[2.6,2.3,2.9,3.1,2.8,2.4,2.1,2.7,3.0,2.8,2.2,2.5]}]},
-  kpi13:{id:'KPI_13',ttl:'Tasa de defectos en producción (Infraestructura)',area:'Soluciones y Productos',unit:'%',obj:2,objL:'< 2%',dir:'down',type:'monthly',labels:M,series:[{name:'%',color:'#C2410C',data:[1.8,1.9,2.0,1.7,1.6,1.5,1.6,1.7,1.8,2.0,1.5,1.7]}]},
+  kpi08:{id:'KPI_08',ttl:'Porcentaje dedicado a desarrollo efectivo',area:'Soluciones y Productos',unit:'%',obj:80,objL:'> 80%',dir:'up',type:'monthly',stacked100:true,labels:M,series:[
+    {name:'Desarrollo',color:'#1D5FA8',data:[76,75,79,78,80,82,79,77,78,80,79,77]},
+    {name:'Productos',color:'#186C24',data:[82,79,84,81,83,85,80,78,82,84,83,86]},
+    {name:'Gestión',color:'#7C3AED',data:[78,73,81,80,77,75,89,82,76,80,77,82]},
+    {name:'Marco',color:'#DC2626',data:[22,27,19,20,23,25,11,18,24,20,23,18]},
+  ]},
+  kpi12:{id:'KPI_12',ttl:'Tasa de defectos en producción',area:'Soluciones y Productos',unit:'%',obj:3,objL:'< 3%',dir:'down',type:'monthly',multiChart:true,labels:M,series:[
+    {name:'Productos software clave', color:'#1D5FA8',data:[2.6,2.3,2.9,3.1,2.8,2.4,2.1,2.7,3.0,2.8,2.2,2.5]},
+    {name:'Proyectos desarrollo',     color:'#186C24',data:[2.4,2.5,2.8,3.1,2.6,1.9,2.3,2.5,3.0,3.1,2.4,2.7]},
+    {name:'Proyectos infraestructura',color:'#7C3AED',data:[1.5,2.2,2.4,2.5,2.8,3.1,2.0,2.3,2.5,3.1,2.4,2.5]},
+  ]},
   // ── EQUIPOS: sin datos reales en Excel (pendiente extracción) ──
   kpi21:{id:'KPI_21',ttl:'Velocidad del equipo (PBIs completados)',area:'Equipos',unit:'PBIs',obj:null,objL:'—',dir:'up',type:'monthly',labels:M,series:[{name:'PBIs',color:'#7C3AED',data:[42,44,45,43,46,47,45,48,46,49,47,50]}]},
   kpi22:{id:'KPI_22',ttl:'Lead Time / Cycle Time',area:'Equipos',unit:'días',obj:null,objL:'—',dir:'down',type:'monthly',labels:M,series:[{name:'Días',color:'#7C3AED',data:[12,11.5,11,10.5,10.5,10,10,9.5,9,9.5,9,8.5]}]},
@@ -399,7 +413,6 @@ const KPI={
   kpi17:{id:'KPI_17',ttl:'Acuerdos de comité con seguimiento completo',area:'Gestión y Alineamiento',unit:'%',obj:null,objL:'—',dir:'up',type:'bimestral',labels:['Ene','Mar','May','Jul','Sep','Nov'],series:[{name:'%',color:'#1D5FA8',data:[88,89,91,92,93,88]}]},
   kpi18:{id:'KPI_18',ttl:'Valoración del onboarding',area:'Gestión y Alineamiento',unit:'/10',obj:9,objL:'> 9/10',dir:'up',type:'semestral',labels:['Jul 2025','Ene 2026'],series:[{name:'Valoración',color:'#186C24',data:[8.8,9.3]}]},
   kpi19:{id:'KPI_19',ttl:'KPIs activos por ámbito',area:'Gestión y Alineamiento',unit:'KPIs',obj:null,objL:'Equilibrio entre ámbitos',dir:null,type:'trimestral',labels:['Q1 2025','Q2 2025','Q3 2025','Q4 2025'],series:[{name:'KPIs',color:'#186C24',data:[42,43,44,43]}]},
-  kpi20:{id:'KPI_20',ttl:'Dedicación a desarrollo efectivo (Gestión)',area:'Gestión y Alineamiento',unit:'%',obj:80,objL:'> 80%',dir:'up',type:'monthly',labels:M,series:[{name:'%',color:'#1D5FA8',data:[78,73,81,80,77,75,89,82,76,80,77,82]}]},
 };
 
 const charts={};let curKey=null;
@@ -478,12 +491,37 @@ function buildStat(key){
 }
 
 function buildChart(key){
-  const k=KPI[key];const multi=k.series.length>1;
+  const k=KPI[key];
+
+  // MultiChart: una subgráfica por serie, apiladas verticalmente
+  if(k.multiChart){
+    const d=document.createElement('div');d.className='cc cc-multi';
+    let subHtml=`
+      <div class="cc-hdr">
+        <div>
+          <div class="cc-id">${k.id} · ${k.area}</div>
+          <div class="cc-ttl">${k.ttl}</div>
+          <div class="cc-obj">Objetivo: ${k.objL}</div>
+        </div>
+        <div class="cc-acts"><button class="edit-btn" data-kpi="${key}" title="Editar datos">✎</button></div>
+      </div>`;
+    k.series.forEach((s,si)=>{
+      subHtml+=`
+        <div class="mc-sub">
+          <div class="mc-lbl">${s.name}</div>
+          <div class="mc-cw"><canvas id="c-${key}-${si}"></canvas></div>
+        </div>`;
+    });
+    d.innerHTML=subHtml;
+    return d;
+  }
+
+  const multi=k.series.length>1&&!k.stacked100;
   const d=document.createElement('div');d.className='cc';
   const legHtml=multi?k.series.map(s=>`<div class="leg-i"><div class="leg-d" style="background:${s.color}"></div>${s.name}</div>`).join(''):'';
-  const objLeg=k.obj!==null&&k.dir!=='range'?`<div class="leg-i"><div class="leg-l"></div>Objetivo</div>`:'';
+  const objLeg=k.obj!==null&&k.dir!=='range'&&!k.stacked100?`<div class="leg-i"><div class="leg-l"></div>Objetivo</div>`:'';
   const rngLeg=k.dir==='range'?`<div class="leg-i"><div class="leg-l"></div>Rango 10–20%</div>`:'';
-  const showLeg=multi||k.obj!==null||k.dir==='range';
+  const showLeg=(multi||k.obj!==null||k.dir==='range')&&!k.stacked100;
   d.innerHTML=`
     <div class="cc-hdr">
       <div>
@@ -500,46 +538,99 @@ function buildChart(key){
 
 function initChart(key){
   const k=KPI[key];
+
+  // MultiChart: inicializar una gráfica por serie
+  if(k.multiChart){
+    k.series.forEach((s,si)=>{
+      const canvas=document.getElementById(`c-${key}-${si}`);if(!canvas)return;
+      const ctx=canvas.getContext('2d');
+      const ds=[
+        {label:s.name,data:[...s.data],backgroundColor:s.color+'CC',borderColor:s.color,borderWidth:0,borderRadius:2},
+        {label:'Límite',data:Array(k.labels.length).fill(k.obj),type:'line',borderColor:'#DC2626',borderWidth:1.5,borderDash:[5,4],pointRadius:0,fill:false},
+      ];
+      charts[`${key}-${si}`]=new Chart(canvas,{
+        type:'bar',
+        data:{labels:k.labels,datasets:ds},
+        options:{
+          responsive:true,maintainAspectRatio:false,
+          animation:{duration:500},
+          plugins:{
+            legend:{display:false},
+            tooltip:{backgroundColor:'#1A2030',bodyColor:'#F1F5F9',padding:8,cornerRadius:6,
+              callbacks:{label:c=>c.dataset.label==='Límite'?`Límite: ${c.raw}%`:`${s.name}: ${c.raw}%`}}
+          },
+          scales:{
+            x:{grid:{display:false},border:{display:false},ticks:{font:{size:9,family:"'Century Gothic',sans-serif"},color:'#94A3B8',maxRotation:0}},
+            y:{max:4,grid:{color:'rgba(0,0,0,.05)'},border:{display:false},
+              ticks:{font:{size:9,family:"'Century Gothic',sans-serif"},color:'#94A3B8',
+                callback:v=>v+'%',stepSize:1}}
+          }
+        }
+      });
+    });
+    return;
+  }
   const canvas=document.getElementById('c-'+key);if(!canvas)return;
   const ctx=canvas.getContext('2d');
   const isBar=k.unit==='nº'||k.unit==='PBIs';
+  const isStacked=k.stacked100===true;
   function grad(color){
     const g=ctx.createLinearGradient(0,0,0,190);const rgb=hexRgb(color);
     g.addColorStop(0,`rgba(${rgb},.18)`);g.addColorStop(1,`rgba(${rgb},0)`);return g;
   }
   const ds=k.series.map(s=>({
     label:s.name,data:[...s.data],borderColor:s.color,
-    backgroundColor:isBar?s.color+'33':grad(s.color),
-    borderWidth:isBar?0:2,pointRadius:2.5,pointHoverRadius:5,
-    pointBackgroundColor:s.color,tension:0.4,fill:!isBar,
+    backgroundColor:isStacked?s.color:(isBar?s.color+'33':grad(s.color)),
+    borderWidth:isStacked?0:(isBar?0:2),
+    pointRadius:isStacked?0:2.5,pointHoverRadius:isStacked?0:5,
+    pointBackgroundColor:s.color,tension:0.4,fill:!isBar&&!isStacked,
   }));
-  if(k.obj!==null&&k.dir!=='range')ds.push({label:'Objetivo',data:Array(k.labels.length).fill(k.obj),borderColor:'#DC2626',borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false,tension:0});
-  if(k.dir==='range')[k.objMin,k.objMax].forEach(v=>ds.push({label:'',data:Array(k.labels.length).fill(v),borderColor:'#DC2626',borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false,tension:0}));
-
+  // No añadir línea de objetivo en stacked
+  if(!isStacked){
+    if(k.obj!==null&&k.dir!=='range')ds.push({label:'Objetivo',data:Array(k.labels.length).fill(k.obj),borderColor:'#DC2626',borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false,tension:0});
+    if(k.dir==='range')[k.objMin,k.objMax].forEach(v=>ds.push({label:'',data:Array(k.labels.length).fill(v),borderColor:'#DC2626',borderDash:[5,4],borderWidth:1.5,pointRadius:0,fill:false,tension:0}));
+  }
   charts[key]=new Chart(canvas,{
-    type:isBar?'bar':'line',
+    type:isStacked?'bar':(isBar?'bar':'line'),
     data:{labels:k.labels,datasets:ds},
     options:{
       responsive:true,maintainAspectRatio:false,
       animation:{duration:650,easing:'easeOutQuart'},
       plugins:{
-        legend:{display:false},
+        legend:{
+          display:isStacked,
+          position:'right',
+          labels:{font:{size:10,family:"'Century Gothic',sans-serif"},color:'#6B7280',boxWidth:12,padding:12}
+        },
         tooltip:{backgroundColor:'#1A2030',borderColor:'rgba(0,0,0,.15)',borderWidth:1,
           titleColor:'#94A3B8',bodyColor:'#F1F5F9',padding:10,cornerRadius:8,
-          callbacks:{label:c=>`${c.dataset.label}: ${c.raw} ${k.unit}`}}
+          callbacks:{label:c=>`${c.dataset.label}: ${c.raw}%`}}
       },
       scales:{
-        x:{grid:{display:false},border:{display:false},ticks:{font:{size:10,family:"'Century Gothic',sans-serif"},color:'#94A3B8',maxRotation:0}},
-        y:{grid:{color:'rgba(0,0,0,.05)',drawBorder:false},border:{display:false},
+        x:{
+          stacked:isStacked,
+          grid:{display:false},border:{display:false},
+          ticks:{font:{size:10,family:"'Century Gothic',sans-serif"},color:'#94A3B8',maxRotation:0}
+        },
+        y:{
+          stacked:isStacked,
+          max:isStacked?100:undefined,
+          grid:{color:'rgba(0,0,0,.05)',drawBorder:false},border:{display:false},
           ticks:{font:{size:10,family:"'Century Gothic',sans-serif"},color:'#94A3B8',
-            callback:v=>v+(k.unit==='%'?'%':k.unit==='h'?'h':'')}}
+            callback:v=>v+(k.unit==='%'?'%':k.unit==='h'?'h':'')}
+        }
       }
     }
   });
 }
 
 function refreshChart(key){
-  const k=KPI[key];const ch=charts[key];if(!ch)return;
+  const k=KPI[key];
+  if(k.multiChart){
+    k.series.forEach((s,si)=>{const ch=charts[`${key}-${si}`];if(!ch)return;ch.data.datasets[0].data=[...s.data];ch.update();});
+    return;
+  }
+  const ch=charts[key];if(!ch)return;
   k.series.forEach((s,i)=>{ch.data.datasets[i].data=[...s.data];});ch.update();
 }
 
@@ -554,9 +645,9 @@ populate('cto-ch-b',['kpi05'],false);
 populate('ciso-stats',['kpi10'],true);
 populate('ciso-ch-a',['kpi07','kpi09'],false);
 populate('ciso-ch-b',['kpi14','kpi15'],false);
-populate('op-sol',['kpi08','kpi11','kpi12','kpi13'],false);
+populate('op-sol',['kpi08','kpi12'],false);
 populate('op-gest-s',['kpi16','kpi18','kpi19'],true);
-populate('op-gest-c',['kpi17','kpi20'],false);
+populate('op-gest-c',['kpi17'],false);
 
 // Vista Equipos — por KPI, 6 gráficas (una por equipo)
 const TEAM_KEYS = ['kpi21','kpi22','kpi23','kpi24','kpi25','kpi26','kpi27'];
@@ -645,8 +736,8 @@ function buildGeneralView(){
   const groups=[
     {lbl:'Estratégico · Cliente & AAPP',keys:['kpi01','kpi02','kpi03','kpi04','kpi05','kpi06']},
     {lbl:'Plataforma Digital & Ciberseguridad',keys:['kpi07','kpi09','kpi10','kpi14','kpi15']},
-    {lbl:'Soluciones y Productos Digitales',keys:['kpi08','kpi11','kpi12','kpi13']},
-    {lbl:'Gestión y Alineamiento Digital',keys:['kpi16','kpi17','kpi18','kpi19','kpi20']},
+    {lbl:'Soluciones y Productos Digitales',keys:['kpi08','kpi12']},
+    {lbl:'Gestión y Alineamiento Digital',keys:['kpi16','kpi17','kpi18','kpi19']},
     {lbl:'Equipos · Métricas ágiles',keys:['kpi21','kpi22','kpi23','kpi24','kpi25','kpi26','kpi27']},
   ];
   // Count statuses
