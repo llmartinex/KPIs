@@ -8,7 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
+ 
 :root{
   /* Page */
   --bg:#EEF2F7;
@@ -20,7 +20,7 @@
   --tx:#1A2030;
   --mu:#64748B;
   --hi:#94A3B8;
-
+ 
   /* Sidebar — dark green Ecoembes */
   --sb-bg:#122118;
   --sb-surf:rgba(255,255,255,.06);
@@ -30,24 +30,24 @@
   --sb-hi:rgba(255,255,255,.22);
   --sb-act:rgba(80,210,100,.14);
   --sb-act-tx:#6EE87B;
-
+ 
   /* Brand */
   --gr:#186C24;
   --gr-mid:#1F8A2E;
   --gr-light:#DCFCE7;
   --gr-tx:#166534;
-
+ 
   /* Accents */
   --bl:#1D5FA8;
   --or:#C2410C;
   --pu:#7C3AED;
   --rd:#DC2626;
-
+ 
   /* Status */
   --ok-bg:#DCFCE7;--ok-tx:#166534;
   --wn-bg:#FEF3C7;--wn-tx:#92400E;
   --ko-bg:#FEE2E2;--ko-tx:#991B1B;
-
+ 
   /* Layout */
   --sb:224px;
   --top:58px;
@@ -55,11 +55,11 @@
   --shadow:0 1px 3px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.06);
   --shadow-hover:0 4px 8px rgba(0,0,0,.06),0 12px 28px rgba(0,0,0,.1);
 }
-
+ 
 html,body{height:100%;background:var(--bg);color:var(--tx);
   font-family:'Century Gothic','CenturyGothic','Trebuchet MS','Nunito',sans-serif;
   font-size:14px;line-height:1.5}
-
+ 
 /* ── SIDEBAR ─────────────────────────────────────────────── */
 .sidebar{
   width:var(--sb);min-height:100vh;
@@ -100,10 +100,10 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
   color:var(--sb-mu);margin-bottom:4px}
 .sb-row span:last-child{color:var(--sb-tx);font-weight:600}
 .sb-ver{margin-top:10px;font-size:10px;color:var(--sb-hi);text-align:center}
-
+ 
 /* ── CONTENT ─────────────────────────────────────────────── */
 .content{margin-left:var(--sb);flex:1;display:flex;flex-direction:column;min-height:100vh}
-
+ 
 /* TOPBAR */
 .topbar{background:var(--surf);border-bottom:1px solid var(--bd);
   padding:0 26px;height:var(--top);
@@ -117,7 +117,7 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
   padding:5px 12px;font-size:11.5px;color:var(--mu);
   display:flex;align-items:center;gap:6px}
 .tb-dot{width:6px;height:6px;background:#22C55E;border-radius:50%;animation:pulse-dot 2.5s infinite}
-
+ 
 /* MAIN */
 .main{padding:24px 26px;overflow-y:auto}
 .view{display:none}.view.active{display:block;animation:view-in .22s ease}
@@ -126,12 +126,12 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
 .sec-hdr{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--bd)}
 .sec-bar{width:3px;height:14px;background:var(--gr);border-radius:2px;flex-shrink:0}
 .sec-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
-
+ 
 /* GRIDS */
 .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:14px}
 .chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:12px;margin-bottom:14px}
 .chart-grid.full{grid-template-columns:1fr}
-
+ 
 /* ── STAT CARD ───────────────────────────────────────────── */
 .sc{background:var(--surf);border-radius:var(--r-lg);border:1px solid var(--bd);
   padding:18px 18px 14px;position:relative;overflow:hidden;
@@ -176,7 +176,7 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
 .ko{background:var(--ko-bg);color:var(--ko-tx)}
 .sc .edit-btn{position:absolute;top:12px;right:12px;opacity:0;transition:opacity .15s}
 .sc:hover .edit-btn{opacity:1}
-
+ 
 /* ── CHART CARD ──────────────────────────────────────────── */
 .cc{background:var(--surf);border-radius:var(--r-lg);border:1px solid var(--bd);
   padding:18px;box-shadow:var(--shadow);transition:box-shadow .2s,border-color .2s}
@@ -192,13 +192,13 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
 .leg-i{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--mu)}
 .leg-d{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .leg-l{width:16px;height:0;border-top:1.5px dashed var(--rd);flex-shrink:0}
-
+ 
 /* BUTTONS */
 .edit-btn{width:28px;height:28px;border-radius:7px;border:1px solid var(--bd);
   background:var(--surf);cursor:pointer;display:flex;align-items:center;justify-content:center;
   color:var(--hi);font-size:12px;transition:.15s;box-shadow:none}
 .edit-btn:hover{background:var(--surf2);color:var(--tx);border-color:var(--bd2)}
-
+ 
 /* ── MODAL ───────────────────────────────────────────────── */
 .modal-ov{position:fixed;inset:0;background:rgba(15,20,30,.45);
   backdrop-filter:blur(8px);z-index:200;
@@ -236,12 +236,12 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
 .btn-p:hover{background:var(--gr-mid);box-shadow:0 4px 12px rgba(24,108,36,.35)}
 .btn-s{background:var(--surf2);color:var(--mu);border:1px solid var(--bd)}
 .btn-s:hover{background:var(--surf3);color:var(--tx)}
-
+ 
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--bd2);border-radius:3px}
-
+ 
 /* MULTI-CHART */
 .cc-multi{display:flex;flex-direction:column;gap:0}
 .mc-sub{padding:10px 16px 6px}
@@ -251,7 +251,7 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
 </style>
 </head>
 <body style="display:flex">
-
+ 
 <!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="sb-hdr">
@@ -291,7 +291,7 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
     <div class="sb-ver">Dashboard</div>
   </div>
 </aside>
-
+ 
 <!-- CONTENT -->
 <div class="content">
   <header class="topbar">
@@ -303,10 +303,10 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
       
     </div>
   </header>
-
+ 
   <main class="main">
-
-
+ 
+ 
 <!-- VISTA CTO -->
     <div class="view active" id="view-cto">
       <div class="section">
@@ -319,7 +319,7 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
         <div class="chart-grid full" id="cto-ch-b"></div>
       </div>
     </div>
-
+ 
     <!-- VISTA CISO -->
     <div class="view" id="view-ciso">
       <div class="section">
@@ -332,7 +332,7 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
         <div class="chart-grid" id="ciso-ch-b"></div>
       </div>
     </div>
-
+ 
     <!-- VISTA OPERATIVA -->
     <div class="view" id="view-op">
       <div class="section">
@@ -347,15 +347,15 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
       <div class="section">
       </div>
     </div>
-
+ 
     <!-- VISTA EQUIPOS -->
     <div class="view" id="view-eq">
       <div id="eq-kpi-sections"></div>
     </div>
-
+ 
   </main>
 </div>
-
+ 
 <!-- MODAL -->
 <div class="modal-ov hidden" id="editModal">
   <div class="modal">
@@ -372,10 +372,10 @@ html,body{height:100%;background:var(--bg);color:var(--tx);
     </div>
   </div>
 </div>
-
+ 
 <script>
 const M=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-
+ 
 const KPI={
   // ── DATOS REALES DEL EXCEL (ene-dic 2025 + puntos periódicos) ──
   kpi01:{id:'KPI_01',ttl:'Retención de clientes global',area:'Cliente',unit:'%',obj:90,objL:'≥ 90%',dir:'up',type:'annual',labels:['2025','2026'],series:[{name:'Retención global',color:'#186C24',data:[90.3,90.07]}]},
@@ -414,9 +414,9 @@ const KPI={
   kpi18:{id:'KPI_18',ttl:'Valoración del onboarding',area:'Gestión y Alineamiento',unit:'/10',obj:9,objL:'> 9/10',dir:'up',type:'semestral',labels:['Jul 2025','Ene 2026'],series:[{name:'Valoración',color:'#186C24',data:[8.8,9.3]}]},
   kpi19:{id:'KPI_19',ttl:'KPIs activos por ámbito',area:'Gestión y Alineamiento',unit:'KPIs',obj:null,objL:'Equilibrio entre ámbitos',dir:null,type:'trimestral',labels:['Q1 2025','Q2 2025','Q3 2025','Q4 2025'],series:[{name:'KPIs',color:'#186C24',data:[42,43,44,43]}]},
 };
-
+ 
 const charts={};let curKey=null;
-
+ 
 function latest(k){const d=k.series[0].data;return d[d.length-1];}
 function avg(k){const d=k.series[0].data;return d.reduce((a,b)=>a+b,0)/d.length;}
 function status(k){
@@ -432,7 +432,7 @@ function fv(v,u,dec){
   return v.toFixed(d)+suffix;
 }
 function hexRgb(hex){return [parseInt(hex.slice(1,3),16),parseInt(hex.slice(3,5),16),parseInt(hex.slice(5,7),16)].join(',');}
-
+ 
 let sid=0;
 function spark(data,color,w=80,h=32){
   if(!data||data.length<2)return '';
@@ -454,7 +454,7 @@ function spark(data,color,w=80,h=32){
     <circle cx="${last[0]}" cy="${last[1]}" r="2.8" fill="${color}"/>
   </svg>`;
 }
-
+ 
 function countUp(el,target,unit,dur=850){
   const dec=unit==='%'?1:unit==='h'?1:unit==='/10'?1:unit==='días'?1:0;
   const t0=performance.now();
@@ -465,7 +465,7 @@ function countUp(el,target,unit,dur=850){
     if(p<1)requestAnimationFrame(step);
   })(t0);
 }
-
+ 
 function buildStat(key){
   const k=KPI[key];
   const v=k.type==='monthly'?avg(k):latest(k);
@@ -489,10 +489,10 @@ function buildStat(key){
     </div>`;
   return d;
 }
-
+ 
 function buildChart(key){
   const k=KPI[key];
-
+ 
   // MultiChart: una subgráfica por serie, apiladas verticalmente
   if(k.multiChart){
     const d=document.createElement('div');d.className='cc cc-multi';
@@ -515,7 +515,7 @@ function buildChart(key){
     d.innerHTML=subHtml;
     return d;
   }
-
+ 
   const multi=k.series.length>1&&!k.stacked100;
   const d=document.createElement('div');d.className='cc';
   const legHtml=multi?k.series.map(s=>`<div class="leg-i"><div class="leg-d" style="background:${s.color}"></div>${s.name}</div>`).join(''):'';
@@ -535,10 +535,10 @@ function buildChart(key){
     ${showLeg?`<div class="cc-leg">${legHtml}${objLeg}${rngLeg}</div>`:''}`;
   return d;
 }
-
+ 
 function initChart(key){
   const k=KPI[key];
-
+ 
   // MultiChart: inicializar una gráfica por serie
   if(k.multiChart){
     k.series.forEach((s,si)=>{
@@ -623,7 +623,7 @@ function initChart(key){
     }
   });
 }
-
+ 
 function refreshChart(key){
   const k=KPI[key];
   if(k.multiChart){
@@ -633,12 +633,12 @@ function refreshChart(key){
   const ch=charts[key];if(!ch)return;
   k.series.forEach((s,i)=>{ch.data.datasets[i].data=[...s.data];});ch.update();
 }
-
+ 
 function populate(cid,keys,stat){
   const el=document.getElementById(cid);if(!el)return;
   keys.forEach(k=>{const n=stat?buildStat(k):buildChart(k);el.appendChild(n);if(!stat)initChart(k);});
 }
-
+ 
 populate('cto-stats',['kpi01','kpi02','kpi06'],true);
 populate('cto-ch-a',['kpi03','kpi04'],false);
 populate('cto-ch-b',['kpi05'],false);
@@ -648,7 +648,7 @@ populate('ciso-ch-b',['kpi14','kpi15'],false);
 populate('op-sol',['kpi08','kpi12'],false);
 populate('op-gest-s',['kpi16','kpi18','kpi19'],true);
 populate('op-gest-c',['kpi17'],false);
-
+ 
 // Vista Equipos — por KPI, 6 gráficas (una por equipo)
 const TEAM_KEYS = ['kpi21','kpi22','kpi23','kpi24','kpi25','kpi26','kpi27'];
 const TEAMS = [
@@ -659,7 +659,7 @@ const TEAMS = [
   {id:'circ', label:'CircularCheck'},
   {id:'arq',  label:'Arquitectura'},
 ];
-
+ 
 // Variaciones por equipo para diferenciación visual hasta conectar datos reales
 const baseVariation = {
   dec:  [0,    0,    0,   0,   0,   0,   0],
@@ -669,7 +669,7 @@ const baseVariation = {
   circ: [-1,  -1,    1,  -1,   1,   1,  -1],
   arq:  [3,   0.5,   2,   0,   2,  -1,   3],
 };
-
+ 
 const TEAM_DATA = {};
 TEAMS.forEach(team => {
   TEAM_DATA[team.id] = {};
@@ -689,28 +689,28 @@ TEAMS.forEach(team => {
     };
   });
 });
-
+ 
 function buildEquiposView() {
   const container = document.getElementById('eq-kpi-sections');
   if (!container) return;
   container.innerHTML = '';
-
+ 
   TEAM_KEYS.forEach(k => {
     const base = KPI[k];
-
+ 
     // Sección header por KPI
     const secHdr = document.createElement('div');
     secHdr.className = 'sec-hdr';
     secHdr.style.marginTop = '8px';
     secHdr.innerHTML = `<div class="sec-bar" style="background:#7C3AED"></div><span class="sec-lbl">${base.ttl} <span style="font-weight:400;opacity:.7">· ${base.unit}</span></span>`;
     container.appendChild(secHdr);
-
+ 
     // Grid con 6 gráficas (una por equipo)
     const grid = document.createElement('div');
     grid.className = 'chart-grid';
     grid.style.marginBottom = '28px';
     container.appendChild(grid);
-
+ 
     TEAMS.forEach(team => {
       const tempKey = k + '_' + team.id;
       // Sobreescribir título para mostrar el nombre del equipo
@@ -722,15 +722,15 @@ function buildEquiposView() {
     });
   });
 }
-
+ 
 buildEquiposView();
-
+ 
 document.querySelectorAll('.sc-val[data-target]').forEach(el=>{
   countUp(el,parseFloat(el.dataset.target),el.dataset.unit);
 });
-
+ 
 const viewNames={cto:'Vista CTO',ciso:'Vista CISO',op:'Vista Operativa',eq:'Vista Equipos'};
-
+ 
 function buildGeneralView(){
   // Groups with ordered keys
   const groups=[
@@ -788,10 +788,10 @@ document.querySelectorAll('.nav-item').forEach(item=>{
     setTimeout(()=>Object.values(charts).forEach(c=>c&&c.resize()),50);
   });
 });
-
+ 
 const modal=document.getElementById('editModal');
 document.addEventListener('click',e=>{const b=e.target.closest('[data-kpi]');if(b)openModal(b.dataset.kpi);});
-
+ 
 function openModal(key){
   curKey=key;const k=KPI[key];
   document.getElementById('mTtl').textContent=k.id+' · '+k.ttl;
@@ -827,3 +827,7 @@ document.getElementById('mSave').addEventListener('click',()=>{
 </script>
 </body>
 </html>
+ 
+
+
+
